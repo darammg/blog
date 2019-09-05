@@ -7,7 +7,7 @@ jobs:
       - run: 
           name: git pull on ssh
           command: |
-            ssh darammg@home.darammg.com '
+            ssh -oStrictHostKeyChecking=no darammg@home.darammg.com '
             cd ~/deploy/blog
             git pull'
 workflows:
