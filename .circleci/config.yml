@@ -2,13 +2,13 @@ version: 2
 jobs:
   build:
     docker:        
-      - image: circleci/node:latest
+      - image: circleci/alpine
     steps:
       - checkout
       - run: 
           name: git pull on ssh
           command: |
-            ssh darammg@home.darammg.com -i ~/.ssh/home.darammg.com -o StrictHostKeyChecking=no '
+            ssh darammg@home.darammg.com -o StrictHostKeyChecking=no '
             cd ~/deploy/blog
             git pull'
 workflows:
