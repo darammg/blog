@@ -1,0 +1,19 @@
+# ----------- CONFIGURABLE START -----------
+title:            "다람쥐의 기록들"
+description:      "빠름, 영리, 단순을 높은 가치로 생각하는 서버 개발자의 블로그"
+url:              https://darammg.com # Site url, without a slash at the end.
+signoff:          "darammg" # Your name
+share:            false # Turn on twitter and facebook share buttons
+
+links:
+  - name:         Posts
+    url:          /
+    external:     true
+  - name:         About me
+    url:          /about
+    external:     true
+# ------------ CONFIGURABLE END ------------
+permalink:        /posts/:title
+defaults:
+  - values:
+      layout: "default"
