@@ -3,10 +3,6 @@ jobs:
   build:
     machine: true
     steps:
-      - checkout
-      - add_ssh_keys:
-          fingerprints:
-            - "61:1c:2e:4a:70:e3:e9:23:17:a9:d5:7a:12:01:53:2b"
       - run: 
           name: git pull on ssh
           command: |
