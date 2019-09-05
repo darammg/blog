@@ -1,17 +1,17 @@
 version: 2
 jobs:
-  git_pull:
+  build:
     docker:        
       - image: circleci/node:latest
     steps:
-      - deploy: 
-        name: git pull on ssh
-        command: |
-          ssh -o StrictHostKeyChecking=no darammg@home.darammg.com '
-          cd ~/deploy/blog
-          git pull'
+      - run: 
+          name: git pull on ssh
+          command: |
+            ssh -o StrictHostKeyChecking=no darammg@home.darammg.com '
+            cd ~/deploy/blog
+            git pull'
 workflows:
   version: 2
   build:
     jobs:
-      - git_pull
+      - build
