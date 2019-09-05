@@ -6,4 +6,4 @@
 
 # Ignore bundler config.
 docker-compose.yml
-
+./_site/*
