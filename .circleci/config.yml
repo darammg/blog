@@ -8,8 +8,7 @@ jobs:
           command: |
             ssh darammg@home.darammg.com -o StrictHostKeyChecking=no '
             cd ~/deploy/blog
-            git pull
-            bundle exec jekyll build'
+            git pull'
 workflows:
   version: 2
   build:
