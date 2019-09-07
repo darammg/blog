@@ -9,7 +9,6 @@ jobs:
             ssh darammg@home.darammg.com -o StrictHostKeyChecking=no '
             cd ~/deploy/blog
             git pull
-            rbenv local 2.6.3
             bundle exec jekyll build'
 workflows:
   version: 2
