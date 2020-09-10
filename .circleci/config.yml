@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run:
           name: 모든 의존성을 설치합니다
-          command: cd client && yarn install
+          command: echo 'abcd'
 
 workflows:
   version: 2
