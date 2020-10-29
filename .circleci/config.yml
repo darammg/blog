@@ -1,37 +1,37 @@
-version: 2
-jobs:
-  checkout:
-    working_directory: ~/blog
-    docker:
-      - image: circleci/node:12
-    steps:
-      - checkout
-      - run:
-          name: 모든 의존성을 설치합니다
-          command: echo 'abcd'
-
-workflows:
-  version: 2
-  build:
-    jobs:
-      - checkout
 # version: 2
 # jobs:
-#   build:
+#   checkout:
+#     working_directory: ~/blog
 #     docker:
-#       - image: circleci/ruby:2.6.3
+#       - image: circleci/node:12
 #     steps:
+#       - checkout
 #       - run:
-#           name: git pull on ssh
-#           command: |
-#             ssh darammg@home.darammg.com -o StrictHostKeyChecking=no '
-#             export PATH="$HOME/.rbenv/bin:$PATH"
-#             eval "$(rbenv init -)"
-#             cd ~/deploy/blog
-#             git pull
-#             bundle exec jekyll build'
+#           name: 모든 의존성을 설치합니다
+#           command: echo 'abcd'
+
 # workflows:
 #   version: 2
 #   build:
 #     jobs:
-#       - build
+#       - checkout
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.6.3
+    steps:
+      - run:
+          name: git pull on ssh
+          command: |
+            ssh darammg@home.darammg.com -o StrictHostKeyChecking=no '
+            export PATH="$HOME/.rbenv/bin:$PATH"
+            eval "$(rbenv init -)"
+            cd ~/deploy/blog
+            git pull
+            bundle exec jekyll build'
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
