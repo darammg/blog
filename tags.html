@@ -1,0 +1,33 @@
+---
+---
+<ul id="tag_posts" class="list pa0">
+</ul>
+
+<script>
+  function tagApply() {
+    var select_tag = window.location.hash.substring(1);
+    document.querySelectorAll(`[data-tag]`).forEach((el) => {
+      el.style.fontWeight="normal";
+    })
+    document.querySelectorAll(`[data-tag='${select_tag}']`)[0].style.fontWeight="bold";
+
+
+
+    var post_lis = ""
+    window.store.forEach((post) => {
+      if ( post.tags.includes( window.location.hash.substring(1) ) ){
+        post_lis += `
+          <li class="mv2">
+            <a href="${post.link}" class="db pv1 link blue hover-mid-gray">
+              <time class="fr silver ttu">${post.date}</time>
+              ${post.title}
+            </a>
+          </li>
+        `;
+      }
+    });
+    document.getElementById('tag_posts').innerHTML = post_lis;
+  }
+  tagApply();
+  window.addEventListener('hashchange', tagApply, false);
+</script>

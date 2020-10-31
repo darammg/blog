@@ -1,0 +1,17 @@
+name: rebuild-blog
+
+on:
+  push:
+    branches:
+      - master 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: rebuild blog on ssh
+      uses: JimCronqvist/action-ssh@master
+      with:
+        hosts: '${{ secrets.USER }}@${{ secrets.HOST }}'
+        privateKey: ${{ secrets.PRIVATE_KEY }}
+        command: sh script/rebuild-blog
